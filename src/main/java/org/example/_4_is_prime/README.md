@@ -1,3 +1,3 @@
 # ALGORITHMS
 
-Check is a number is a prime number.
+Check is a number prime number.
