@@ -11,12 +11,10 @@ public class DeleteOccurrenceOfNTimes {
     public static int[] deleteNth(int[] elements, int maxOccurrences) {
         if (maxOccurrences == 0) return new int[] {};
 
-        String[] strArr = new String[elements.length];
-        for (int i = 0; i < elements.length; i++) {
-            strArr[i] = String.valueOf(elements[i]);
-        }
+        var strElements = Arrays.toString(elements);
+        var strArr = strElements.substring(1, strElements.length() - 1).split(", ");
 
-        int count = 1;
+        int count;
         for (int i = 0; i < strArr.length; i++) {
             count = 1;
             String stringI = strArr[i];
@@ -25,22 +23,20 @@ public class DeleteOccurrenceOfNTimes {
                 String stringJ = strArr[j];
                 if (stringI.equals(stringJ)) count++;
 
-                if (count > maxOccurrences) {
+                if (count > maxOccurrences)
                     if (stringI.equals(stringJ)) strArr[j] = "";
-                }
             }
         }
 
         int countNonEmpty = 0;
-        for(int i = 0; i < strArr.length; i++) {
-            if (strArr[i] != "") countNonEmpty++;
-        }
+        for (String s : strArr)
+            if (!s.equals("")) countNonEmpty++;
 
         int indexI = 0;
         int[] returnValue = new int[countNonEmpty];
-        for (int i = 0; i < strArr.length; i++) {
-            if (strArr[i] != "") {
-                returnValue[indexI] = Integer.parseInt(strArr[i]);
+        for (String s : strArr) {
+            if (!s.equals(""))  {
+                returnValue[indexI] = Integer.parseInt(s);
                 indexI++;
             }
         }
