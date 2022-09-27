@@ -12,29 +12,20 @@ public class BillsChallenge {
         System.out.println(Arrays.toString(withdraw(260)));
     }
 
-    public static int[] withdraw(int amount) {
+    public static int[] withdraw(int n) {
         int hundredCount = 0;
         int fiftyCount = 0;
-        int twentyCount = 0;
+        int twentyCount;
 
-        if (amount % 20 == 0) {
-            if (amount >= 100) {
-                hundredCount = amount / 100;
-                amount = amount - (hundredCount * 100);
-            }
-            twentyCount = amount / 20;
-        }
-
-        if (amount % 20 == 10) {
+        if (n % 20 == 10) {
             fiftyCount++;
-            amount = amount - 50;
-            if (amount >= 100) {
-                hundredCount = amount / 100;
-                amount = amount - (hundredCount * 100);
-            }
-            twentyCount = amount / 20;
+            n = n - 50;
         }
-
+        if (n >= 100) {
+            hundredCount = n / 100;
+            n = n - (hundredCount * 100);
+        }
+        twentyCount = n / 20;
 
         return new int[] {hundredCount, fiftyCount, twentyCount};
     }
