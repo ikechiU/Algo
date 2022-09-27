@@ -1,20 +1,18 @@
 package org.example._11_bills_100_50_20;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BillsChallenge {
 
     public static void main(String[] args) {
-        System.out.println(withdraw(40));
-        System.out.println(withdraw(60));
-        System.out.println(withdraw(230));
-        System.out.println(withdraw(250));
-        System.out.println(withdraw(260));
+        System.out.println(Arrays.toString(withdraw(40)));
+        System.out.println(Arrays.toString(withdraw(60)));
+        System.out.println(Arrays.toString(withdraw(230)));
+        System.out.println(Arrays.toString(withdraw(250)));
+        System.out.println(Arrays.toString(withdraw(260)));
     }
 
-    public static ArrayList<Integer> withdraw(int amount) {
-        ArrayList<Integer> result = new ArrayList<>();
-
+    public static int[] withdraw(int amount) {
         int hundredCount = 0;
         int fiftyCount = 0;
         int twentyCount = 0;
@@ -37,10 +35,7 @@ public class BillsChallenge {
             twentyCount = amount / 20;
         }
 
-        result.add(hundredCount);
-        result.add(fiftyCount);
-        result.add(twentyCount);
 
-        return result;
+        return new int[] {hundredCount, fiftyCount, twentyCount};
     }
 }
