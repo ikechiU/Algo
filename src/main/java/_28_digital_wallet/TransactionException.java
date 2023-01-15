@@ -73,7 +73,7 @@ class DigitalWallet {
 
 class DigitalWalletTransaction {
     public void addMoney(DigitalWallet digitalWallet, int amount) throws TransactionException {
-        if (digitalWallet.getAccessToken() == null ) {
+        if (digitalWallet.getUserAccessCode() == null ) {
             throw new TransactionException("User not authorized", "USER_NOT_AUTHORIZED");
         }
 
@@ -88,7 +88,7 @@ class DigitalWalletTransaction {
     }
 
     public void payMoney(DigitalWallet digitalWallet, int amount) throws TransactionException {
-        if (digitalWallet.getAccessToken() == null ) {
+        if (digitalWallet.getUserAccessCode() == null ) {
             throw new TransactionException("User not authorized", "USER_NOT_AUTHORIZED");
         }
 
