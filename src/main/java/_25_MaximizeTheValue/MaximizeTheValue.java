@@ -36,7 +36,7 @@ int arr[n]: the elements of arr rearranged as described
 public class MaximizeTheValue {
 
     public static void main(String[] args) {
-        int[] arr = {};
+        int[] arr = {1, 2, 3, 4};
         int[] arr1 = {21, 34, 5, 7, 9};
         int[] arr2 = {21, 34, 5, 7, 9, 2};
         int[] arr3 = {4, 6, 7, 21, 80, 90, 126};
@@ -71,6 +71,9 @@ public class MaximizeTheValue {
         if (arr.length == 0) return new int[]{};
         int n = arr.length;
         Arrays.sort(arr);
+
+
+
 
         System.out.println("Sorted array: " + Arrays.toString(arr));
 
