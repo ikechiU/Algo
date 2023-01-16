@@ -72,16 +72,16 @@ public class FcCodelona {
     }
 
     public static void main(String[] args) {
-//        int[] skills = {12, 4, 6, 13, 5, 10};
-//        int minPlayers = 3;
-//        int minLevel = 4;
-//        int maxLevel = 10;
+        int[] skills = {12, 4, 6, 13, 5, 10};
+        int minPlayers = 3;
+        int minLevel = 4;
+        int maxLevel = 10;
 
-
-        int[] skills = {732, 217, 930, 274, 936, 432, 618, 283, 494, 780, 140, 376, 82, 736, 337};
-        int minPlayers = 6;
-        int minLevel = 186;
-        int maxLevel = 973;
+//        //5812
+//        int[] skills = {732, 217, 930, 274, 936, 432, 618, 283, 494, 780, 140, 376, 82, 736, 337}; //32647
+//        int minPlayers = 6;
+//        int minLevel = 186;
+//        int maxLevel = 973;
 
         System.out.println(numTeams(skills, minPlayers, minLevel, maxLevel));
         // Output: 5
