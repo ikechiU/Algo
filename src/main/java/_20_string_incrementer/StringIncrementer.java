@@ -41,6 +41,7 @@ public class StringIncrementer {
             }
         }
 
+        System.out.println(firstPart + String.join("", lastPartList));
         return firstPart + String.join("", lastPartList);
     }
 }

@@ -6,9 +6,9 @@ public class NthFibonacciNumber {
     public static void main(String[] args) {
         int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34};
 
-        System.out.println(findNthFibonacciNumberRecursive1(4));
-        System.out.println(findNthFibonacciNumberOptimal(4));
-        System.out.println(findNthFibonacciNumberBetterRecursive2(4));
+        System.out.println(findNthFibonacciNumberRecursive1(10));
+        System.out.println(findNthFibonacciNumberOptimal(10));
+        System.out.println(findNthFibonacciNumberBetterRecursive2(10));
     }
 
     //Recursively is not optimal because we are doing duplicate computations

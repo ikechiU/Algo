@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class MinimumWaitingTime {
     public static void main(String[] args) {
         int[] arr = {3, 2, 1, 2, 6};
-        //solutionOne(arr);
-        optimalSolution(arr);
+        solutionOne(arr);
+//        optimalSolution(arr);
     }
 
-    // TC -> O(nlogn) + O(n2) ; SC -> O(i)
+    // TC -> O(nlogn) + O(n2) = O(n2) | SC -> O(1)
     private static void solutionOne(int[] arr) {
         Arrays.sort(arr); // TC -> O(nlogn)
         int count = 0; // SC -> O(K)
@@ -24,6 +24,7 @@ public class MinimumWaitingTime {
         System.out.println(count);
     }
 
+    // TC -> O(n) | SC -> O(1)
     private static void optimalSolution(int[] arr) {
         Arrays.sort(arr);
         int count = 0;

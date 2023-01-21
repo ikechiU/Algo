@@ -3,7 +3,6 @@ package _4_is_prime;
 public class IsPrime {
 
     public static void main(String[] args) {
-
         System.out.println(isPrime(2));
         System.out.println(isPrime(1));
         System.out.println(isPrime(7));

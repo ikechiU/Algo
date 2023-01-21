@@ -10,7 +10,7 @@ public class ClassPhoto {
         System.out.println(canTakeClassPhoto(blueShirt, redShirt));;
     }
 
-    //TC -> O(nlogn) //O(1)
+    //TC -> O(NLogN) //O(1)
     private static boolean canTakeClassPhoto(int[] blueShirt, int[] redShirt) {
         Arrays.sort(blueShirt);
         Arrays.sort(redShirt);
