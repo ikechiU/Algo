@@ -18,17 +18,11 @@ public class AreTheSame {
     }
 
     public static boolean comp(int[] a, int[] b) {
-        if (a == null || b == null)
+        if (a == null || b == null || (a.length < b.length) ||(b.length < a.length) )
             return false;
 
-        if (a.length == 0 && b.length == 0)
+        if (a.length == 0)
             return true;
-
-        if (a.length < b.length) return false;
-
-        for (int i = 0; i < a.length; i++) {
-            a[i] = Math.abs(a[i]);
-        }
 
         Arrays.sort(a);
         Arrays.sort(b);
@@ -38,9 +32,9 @@ public class AreTheSame {
 
 
         for (int i = 0; i < a.length; i++) {
-            int aSqr = a[i] * a[i];
+            int aSqr =  Math.abs(a[i]) *  Math.abs(a[i]);
 
-            if(b[i] != aSqr)
+            if(Math.abs(b[i]) != aSqr)
                 return false;
         }
 

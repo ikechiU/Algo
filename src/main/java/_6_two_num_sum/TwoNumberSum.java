@@ -10,7 +10,7 @@ public class TwoNumberSum {
         int[] array = {3, 5, -4, 8, 11, 1, -1, 6};
 
 //        hashTableSolution(array);
-        var result  = binarySearch(array);
+        var result  = twoPointerMethod(array);
         System.out.println(Arrays.toString(result));
     }
 
@@ -37,7 +37,7 @@ public class TwoNumberSum {
         System.out.println(Arrays.toString(twoNumSUm));
     }
 
-    private static int[] binarySearch(int[] array) {
+    private static int[] twoPointerMethod(int[] array) {
 
         Arrays.sort(array);
 
