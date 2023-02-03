@@ -10,7 +10,6 @@ import java.util.*;
 
 public class Others2 {
 
-
     public static void main(String[] args) {
         String[] commands = {
                 "goto bucketA",

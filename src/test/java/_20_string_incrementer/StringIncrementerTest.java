@@ -1,6 +1,4 @@
 package _20_string_incrementer;
-
-import _20_string_incrementer.StringIncrementer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
