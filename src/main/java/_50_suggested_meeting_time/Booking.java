@@ -26,7 +26,7 @@ public class Booking {
         int currentTime = 780;
         int duration = 45;
         String result = suggestedMeetingTime(workingHours, meetings, currentTime, duration);
-        String result2 = suggestedMeetingTime2(workingHours, meetings, currentTime, duration);
+        String result2 = optimalSolution(workingHours, meetings, currentTime, duration);
         System.out.println(result);
         System.out.println(result2);
     }
@@ -62,7 +62,7 @@ public class Booking {
                 : "No time available";
     }
 
-    private static String suggestedMeetingTime2(Interval workingHours, List<Interval> meetings, int currentTime, int duration) {
+    private static String optimalSolution(Interval workingHours, List<Interval> meetings, int currentTime, int duration) {
         int firstStart = workingHours.getStart();
         int firstEnd = meetings.get(0).getStart();
 
