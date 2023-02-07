@@ -14,7 +14,7 @@ public class MergeTwoSortedList {
         node1.add(1);
         node1.add(2);
         node1.add(4);
-        
+
         //[1,3,4]
         ListNode node2 = new ListNode();
         node2.add(1);
@@ -26,19 +26,63 @@ public class MergeTwoSortedList {
     }
 
     private static ListNode mergeTwoSortedList(ListNode node1, ListNode node2) {
-        var head1 = node1.head;
-        var head2 = node2.head;
+        ListNode node;
 
-        if (head1.data < head2.data) {
-            merge(head1.next, head2);
+        if (node1.head.data < node2.head.data) {
+            node = merge(node1, node2, node1);
         } else {
-            merge(head1, head2.next);
+            node = merge(node1, node2, node2);
         }
 
-        return null;
+        return node;
     }
 
-    private static ListNode merge(ListNode.Node node1, ListNode.Node node2) {
-        return null;
+    private static ListNode merge(ListNode node1, ListNode node2, ListNode node) {
+
+        ListNode.Node tempNode1 = node1.head;
+        ListNode.Node tempNode2 = node2.head;
+
+        boolean isSet = false;
+        ListNode result = new ListNode();
+        ListNode.Node prev = null;
+
+        do {
+            if (tempNode1 != null && tempNode1.equals(node.head) && !isSet) {
+                result.head = prev = tempNode1;
+                isSet = true;
+                tempNode1 = tempNode1.next;
+            } else if (tempNode2 != null && tempNode2.equals(node.head) && !isSet) {
+                result.head = prev = tempNode2;
+                isSet = true;
+                tempNode2 = tempNode2.next;
+            }
+
+
+            if (tempNode1 != null && tempNode2 != null && tempNode1.data < tempNode2.data && prev != null) {
+                prev.next = tempNode1;
+                prev = tempNode1;
+                tempNode1 = tempNode1.next;
+            } else if (tempNode1 != null && tempNode2 != null && prev != null) {
+                prev.next = tempNode2;
+                prev = tempNode2;
+                tempNode2 = tempNode2.next;
+            } else {
+                if (tempNode1 == null && tempNode2 != null && prev != null) {
+                    prev.next = tempNode2;
+                    prev = tempNode2;
+                    tempNode2 = tempNode2.next;
+                }
+                if (tempNode2 == null && tempNode1 != null && prev != null) {
+                    prev.next = tempNode1;
+                    prev = tempNode1;
+                    tempNode1 = tempNode1.next;
+                }
+            }
+
+        } while (tempNode1 != null || tempNode2 != null);
+
+
+
+        return result;
     }
 }
