@@ -71,7 +71,6 @@ public class NCounters {
 
     public static int[] solution(int N, int[] A) {
         int[] counters = new int[N];
-
         int maxCounter = 0;
         int lastMax = 0;
 
