@@ -17,6 +17,7 @@ public class Two {
         System.out.println(a + " " + a.hashCode());
 
 
+        runUnicodeCharacter();
     }
 
     private static void runUnicodeCharacter() {
