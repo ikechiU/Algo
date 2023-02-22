@@ -1,15 +1,14 @@
-package interview;
+package _60_goto_bucket_create_file;
 
 import java.util.*;
 
 /**
  * @author Ikechi Ucheagwu
- * @created 30/01/2023 - 23:09
+ * @created 22/02/2023 - 08:08
  * @project Algo Github
  */
 
-public class Others2 {
-
+public class GotoBucketCreateFile {
     public static void main(String[] args) {
         String[] commands = {
                 "goto bucketA",
