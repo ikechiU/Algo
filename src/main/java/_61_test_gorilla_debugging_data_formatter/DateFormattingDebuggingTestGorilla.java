@@ -18,14 +18,14 @@ import java.util.regex.Pattern;
 
 public class DateFormattingDebuggingTestGorilla {
     public static void main(String[] args) {
-        String[] result = sorted(new String[]{"The first human in space 12-03-1961"}); //61years;2months;11days-The first human in space
-        String[] result1 = sorted(new String[]{"EventC 01-01-1903,Event A 04-01-1900, Event B 01-04-1900"});//0years;0months;3days-Event A,0years;3months;0days-Event B,3years;0months;0days-EventC
-        String[] result2 = sorted(new String[]{"Wrong Format 1900-03-03,Correct Format 03-03-1900"}); //0years;2months;2days-Correct Format
-        String[] result3 = sorted(new String[]{"New Year Party '00 01-01-1900"}); //0years;0months;0days-New Year Party'00
-        System.out.println(Arrays.toString(result));
-        System.out.println(Arrays.toString(result1));
-        System.out.println(Arrays.toString(result2));
-        System.out.println(Arrays.toString(result3));
+        String event = "The first human in space 12-03-1961"; //61years;2months;11days-The first human in space
+        String event1 = "EventC 01-01-1903,Event A 04-01-1900, Event B 01-04-1900";//0years;0months;3days-Event A,0years;3months;0days-Event B,3years;0months;0days-EventC
+        String event2 = "Wrong Format 1900-03-03,Correct Format 03-03-1900"; //0years;2months;2days-Correct Format
+        String event3 = "New Year Party '00 01-01-1900"; //0years;0months;0days-New Year Party'00
+        System.out.println(Arrays.toString(sorted(events(event))));
+        System.out.println(Arrays.toString(sorted(events(event1))));
+        System.out.println(Arrays.toString(sorted(events(event2))));
+        System.out.println(Arrays.toString(sorted(events(event3))));
     }
 
     public static String[] sorted(String[] events) {
@@ -34,16 +34,12 @@ public class DateFormattingDebuggingTestGorilla {
 
         List<String> listOfEvents = new ArrayList<>();
 
-        for (String event : findEvents(events)) {
+        for (String event : events) {
             Optional<LocalDate> date = findDateInLine(event, formatter);
             if (date.isEmpty()) continue;
             Period timeLeft = Period.between(now, date.get());
 
             int dateIndex = event.indexOf(date.get().format(formatter));
-
-//            String targetDate = String.valueOf(date.get());
-//            String target = targetDate.substring(8) + "-" + targetDate.substring(5, 7) + "-" + targetDate.substring(0, 4);
-//            String title = event.replace(target, "").trim();
 
             String title = event.substring(0, dateIndex).trim();
 
@@ -58,10 +54,6 @@ public class DateFormattingDebuggingTestGorilla {
         return listOfEvents.toArray(new String[0]);
     }
 
-    private static String[] findEvents(String[] events) {
-        return events[0].split(",");
-    }
-
     private static Optional<LocalDate> findDateInLine(String line, DateTimeFormatter formatter) {
         String regex = "\\d{1,2}-\\d{1,2}-\\d{4}";
 
@@ -72,7 +64,10 @@ public class DateFormattingDebuggingTestGorilla {
         }
 
         return Optional.empty();
+    }
 
+    private static String[] events(String event) {
+        return event.split(",");
     }
 
 }
